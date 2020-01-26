@@ -6,12 +6,12 @@ using BenchmarkDotNet.Engines;
 
 namespace Benchmark.Linq.Projections
 {
-    public class ProjectionImpl
+    public class Select
     {
         private readonly Fixture _fixture;
         private readonly Consumer _consumer;
 
-        public ProjectionImpl()
+        public Select()
         {
             _fixture = new Fixture();
             _consumer = new Consumer();
@@ -105,8 +105,6 @@ namespace Benchmark.Linq.Projections
                 result[i] = $"{item.SomeId} - {item.SomeString} - {item.OtherObjects.Count()}";
             }
         }
-
-        // todo SelectMany
 
         #region Data
         public IEnumerable<object> CollectionOfNumbers()

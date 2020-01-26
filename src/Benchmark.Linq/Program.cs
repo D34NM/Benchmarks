@@ -7,7 +7,7 @@ namespace Benchmark.Linq
     {
         static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<ProjectionImpl>();
+            _ = BenchmarkRunner.Run<Select>();
         }
     }
 }

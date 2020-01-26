@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{4CB3FFF0-FB8F-4466-8E4C-B456F1F61B37}|Default">
+  <MonoDevelop.Ide.ItemProperties.src.Benchmark.Linq PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/Benchmark.Linq/Projections/Select.cs">
+    <Files>
+      <File FileName="src/Benchmark.Linq/Program.cs" Line="1" Column="1" />
+      <File FileName="src/Benchmark.Linq/Projections/Select.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Benchmarks" expanded="True">
+            <Node name="src" expanded="True">
+              <Node name="Benchmark.Linq" expanded="True">
+                <Node name="Dependencies" expanded="True" />
+                <Node name="Projections" expanded="True">
+                  <Node name="Select.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

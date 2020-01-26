@@ -38,3 +38,4 @@ BenchmarkDotNet.Artifacts
 
 # Visual Studio 2015
 .vs/
+.vs/Benchmarks/xs

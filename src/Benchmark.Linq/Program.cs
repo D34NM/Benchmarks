@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Benchmark.Linq.Projections;
+using BenchmarkDotNet.Running;
 
 namespace Benchmark.Linq
 {
@@ -6,7 +7,7 @@ namespace Benchmark.Linq
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var summary = BenchmarkRunner.Run<ProjectionImpl>();
         }
     }
 }

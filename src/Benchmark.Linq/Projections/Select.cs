@@ -6,6 +6,9 @@ using BenchmarkDotNet.Engines;
 
 namespace Benchmark.Linq.Projections
 {
+    [MaxColumn]
+    [MedianColumn]
+    [MinColumn]
     public class Select
     {
         private readonly Fixture _fixture;

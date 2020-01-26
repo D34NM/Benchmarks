@@ -33,9 +33,9 @@ msbuild.log
 msbuild.err
 msbuild.wrn
 
-# Benchmark
-BenchmarkDotNet.Artifacts
-
 # Visual Studio 2015
 .vs/
-.vs/Benchmarks/xs
+
+# Benchmark
+BenchmarkDotNet.Artifacts
+.vs/Benchmarks/

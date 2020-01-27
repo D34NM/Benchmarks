@@ -8,17 +8,17 @@ Intel Core i7-8750H CPU 2.20GHz (Coffee Lake), 1 CPU, 12 logical and 6 physical 
   [Host]     : .NET Core 3.1.1 (CoreCLR 4.700.19.60701, CoreFX 4.700.19.60801), X64 RyuJIT
   DefaultJob : .NET Core 3.1.1 (CoreCLR 4.700.19.60701, CoreFX 4.700.19.60801), X64 RyuJIT
 
-|                                     Method |           collection |         Mean |       Error |      StdDev |       Median |          Max |          Min |
-|------------------------------------------- |--------------------- |-------------:|------------:|------------:|-------------:|-------------:|-------------:|
-|  Select_Over_Collection_Of_Complex_Objects | Bench(...)ect[] [42] |  51,662.1 us | 1,078.38 us | 2,725.20 us |  50,483.5 us |  60,123.5 us |  48,659.3 us |
-| Foreach_Over_Collection_Of_Complex_Objects | Bench(...)ect[] [42] | 102,997.7 us | 1,709.91 us | 1,515.79 us | 103,033.7 us | 105,938.0 us |  99,780.8 us |
-|     For_Over_Collection_Of_Complex_Objects | Bench(...)ect[] [42] | 103,147.8 us | 2,090.84 us | 1,955.77 us | 103,060.4 us | 108,531.8 us | 100,729.5 us |
-|          Select_Over_Collection_Of_Numbers |       System.Int32[] |  10,524.5 us |    32.22 us |    28.56 us |  10,521.8 us |  10,560.5 us |  10,466.9 us |
-|         Foreach_Over_Collection_Of_Numbers |       System.Int32[] |  25,194.6 us |   667.99 us |   795.20 us |  24,999.6 us |  26,769.9 us |  24,039.0 us |
-|             For_Over_Collection_Of_Numbers |       System.Int32[] |  24,886.3 us |   490.88 us |   980.33 us |  24,457.9 us |  27,415.3 us |  23,721.5 us |
-|          Select_Over_Collection_Of_Strings |      System.String[] |     803.1 us |     8.01 us |     7.49 us |     802.1 us |     820.6 us |     794.6 us |
-|         Foreach_Over_Collection_Of_Strings |      System.String[] |     391.7 us |     2.94 us |     2.61 us |     391.4 us |     398.6 us |     388.2 us |
-|             For_Over_Collection_Of_Strings |      System.String[] |     340.5 us |    10.78 us |    31.46 us |     332.7 us |     427.0 us |     303.4 us |
+|                                     Method |         Mean |       Error |      StdDev |       Median |
+|------------------------------------------- |-------------:|------------:|------------:|-------------:|
+|          Select_Over_Collection_Of_Numbers |  10,730.7 us |   126.33 us |   111.98 us |  10,728.0 us |
+|         Foreach_Over_Collection_Of_Numbers |  30,518.9 us |   586.33 us |   697.98 us |  30,590.4 us |
+|             For_Over_Collection_Of_Numbers |  30,296.0 us |   573.18 us |   562.94 us |  30,417.7 us |
+|          Select_Over_Collection_Of_Strings |     823.1 us |     6.06 us |     5.38 us |     823.1 us |
+|         Foreach_Over_Collection_Of_Strings |     480.1 us |     4.75 us |     4.21 us |     478.7 us |
+|             For_Over_Collection_Of_Strings |     438.9 us |     8.40 us |     7.85 us |     435.8 us |
+|  Select_Over_Collection_Of_Complex_Objects |  51,091.2 us | 1,163.61 us | 1,592.76 us |  50,690.1 us |
+| Foreach_Over_Collection_Of_Complex_Objects | 102,018.8 us | 1,814.51 us | 1,608.52 us | 101,842.2 us |
+|     For_Over_Collection_Of_Complex_Objects | 106,280.9 us | 2,111.98 us | 5,781.50 us | 104,329.4 us |
 
 ## * Legends *
   collection : Value of the 'collection' parameter

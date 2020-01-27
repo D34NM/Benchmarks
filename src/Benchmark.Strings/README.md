@@ -8,19 +8,24 @@ Intel Core i7-8750H CPU 2.20GHz (Coffee Lake), 1 CPU, 12 logical and 6 physical 
 
 *Results:*
 
-|                                       Method |      Mean |     Error |    StdDev |
-|--------------------------------------------- |----------:|----------:|----------:|
-|                   ReadOnly_ToString_Variable |  2.728 ms | 0.0535 ms | 0.0617 ms |
-|              ReadOnly_ToString_Interpolation | 21.491 ms | 0.2110 ms | 0.1870 ms |
-|                     ReadOnly_ToString_Format | 23.951 ms | 0.6709 ms | 1.9033 ms |
-|          ReadOnly_Implicit_Operator_Variable |  3.269 ms | 0.1057 ms | 0.3117 ms |
-|                       ReadOnly_Interpolation | 22.936 ms | 0.4465 ms | 0.7701 ms |
-|                              ReadOnly_Format | 36.240 ms | 0.7147 ms | 1.6131 ms |
-|             ReadWrite_ToString_Interpolation | 22.118 ms | 0.4358 ms | 0.6785 ms |
-|                    ReadWrite_ToString_Format | 22.797 ms | 0.4295 ms | 0.7293 ms |
-|    ReadWrite_Implicit_Operator_Interpolation | 21.822 ms | 0.4215 ms | 0.6308 ms |
-|                      ReadWrite_Interpolation | 20.855 ms | 0.2094 ms | 0.1748 ms |
-|                             ReadWrite_Format | 31.152 ms | 0.6200 ms | 1.0012 ms |
+|                                    Method |      Mean |     Error |    StdDev |    Median | MValue |
+|------------------------------------------ |----------:|----------:|----------:|----------:|-------:|
+|                ReadOnly_ToString_Variable |  2.804 ms | 0.0558 ms | 0.1327 ms |  2.765 ms |  2.424 |
+|           ReadOnly_ToString_Interpolation | 21.216 ms | 0.2278 ms | 0.2130 ms | 21.178 ms |  2.000 |
+|                  ReadOnly_ToString_Format | 21.699 ms | 0.1931 ms | 0.1806 ms | 21.688 ms |  2.000 |
+|       ReadOnly_Implicit_Operator_Variable |  2.835 ms | 0.0567 ms | 0.1244 ms |  2.808 ms |  2.933 |
+|                    ReadOnly_Interpolation | 25.191 ms | 0.9723 ms | 2.8515 ms | 24.600 ms |  3.294 |
+|                           ReadOnly_Format | 34.890 ms | 0.3197 ms | 0.2834 ms | 34.896 ms |  2.000 |
+|          ReadWrite_ToString_Interpolation | 21.126 ms | 0.1092 ms | 0.0968 ms | 21.126 ms |  2.000 |
+|                 ReadWrite_ToString_Format | 21.403 ms | 0.3091 ms | 0.2892 ms | 21.326 ms |  2.000 |
+| ReadWrite_Implicit_Operator_Interpolation | 21.848 ms | 0.1169 ms | 0.1037 ms | 21.855 ms |  2.000 |
+|                   ReadWrite_Interpolation | 21.700 ms | 0.4895 ms | 0.7020 ms | 21.454 ms |  2.000 |
+|                          ReadWrite_Format | 30.765 ms | 0.6136 ms | 1.0252 ms | 30.292 ms |  2.250 |
+
+// *Warnings*
+MultimodalDistribution  
+  **ToString_vs_Interpolation.ReadOnly_Implicit_Operator_Variable: Default -> It seems that the distribution can have several modes (mValue = 2.93)**  
+  **ToString_vs_Interpolation.ReadOnly_Interpolation: Default              -> It seems that the distribution is bimodal (mValue = 3.29)**  
 
 **Legend:**  
   *collection : Value of the 'collection' parameter*  

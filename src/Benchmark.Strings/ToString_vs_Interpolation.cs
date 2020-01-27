@@ -1,11 +1,11 @@
 ﻿using AutoFixture;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Engines;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Benchmark.Strings
 {
+    [MValueColumn]
     public class ToString_vs_Interpolation
     {
         private readonly Fixture _fixture;

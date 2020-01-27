@@ -1,10 +1,16 @@
 ﻿# Projections
 
-BenchmarkDotNet=v0.12.0, OS=macOS 10.15.2 (19C57) [Darwin 19.2.0]
+BenchmarkDotNet=v0.12.0, OS=macOS 10.15.2 (19C57) [Darwin 19.2.0] 
+
 Intel Core i7-8750H CPU 2.20GHz (Coffee Lake), 1 CPU, 12 logical and 6 physical cores
+
 .NET Core SDK=3.1.101
-  [Host]     : .NET Core 3.1.1 (CoreCLR 4.700.19.60701, CoreFX 4.700.19.60801), X64 RyuJIT
-  DefaultJob : .NET Core 3.1.1 (CoreCLR 4.700.19.60701, CoreFX 4.700.19.60801), X64 RyuJIT
+
+[Host]     : .NET Core 3.1.1 (CoreCLR 4.700.19.60701, CoreFX 4.700.19.60801), X64 RyuJIT
+
+DefaultJob : .NET Core 3.1.1 (CoreCLR 4.700.19.60701, CoreFX 4.700.19.60801), X64 RyuJIT
+
+*Results:*
 
 |                                     Method |         Mean |       Error |      StdDev |       Median |
 |------------------------------------------- |-------------:|------------:|------------:|-------------:|
@@ -18,13 +24,19 @@ Intel Core i7-8750H CPU 2.20GHz (Coffee Lake), 1 CPU, 12 logical and 6 physical 
 | Foreach_Over_Collection_Of_Complex_Objects | 102,018.8 us | 1,814.51 us | 1,608.52 us | 101,842.2 us |
 |     For_Over_Collection_Of_Complex_Objects | 106,280.9 us | 2,111.98 us | 5,781.50 us | 104,329.4 us |
 
-## *Legends*
+**Legends:**
 
   collection : Value of the 'collection' parameter
+
   Mean       : Arithmetic mean of all measurements
+
   Error      : Half of 99.9% confidence interval
+
   StdDev     : Standard deviation of all measurements
+
   Median     : Value separating the higher half of all measurements (50th percentile)
+
   Rank       : Relative position of current benchmark mean among all benchmarks (Arabic style)
+
   1 ns       : 1 Nanosecond (0.000000001 sec)
   

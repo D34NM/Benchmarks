@@ -6,13 +6,14 @@ using BenchmarkDotNet.Engines;
 
 namespace Benchmark.Linq.Projections
 {
-    [MaxColumn]
-    [MedianColumn]
-    [MinColumn]
     public class Select
     {
         private readonly Fixture _fixture;
         private readonly Consumer _consumer;
+
+        private int[] _collectionOfIntegers;
+        private string[] _collectionOfStrings;
+        private ComplexObject[] _collectionOfObjects;
 
         public Select()
         {
@@ -20,110 +21,98 @@ namespace Benchmark.Linq.Projections
             _consumer = new Consumer();
         }
 
-        [Benchmark]
-        [ArgumentsSource(nameof(CollectionOfNumbers))]
-        public void Select_Over_Collection_Of_Numbers(int[] collection)
-            => collection
-            .Select(number => $"{number}")
-            .Consume(_consumer);
+        [GlobalSetup]
+        public void GlobalSetup()
+        {
+            _collectionOfIntegers = _fixture.CreateMany<int>(100_000).ToArray();
+            _collectionOfStrings = _fixture.CreateMany<string>(100_000).ToArray();
+            _collectionOfObjects = _fixture.CreateMany<ComplexObject>(100_000).ToArray();
+        }
 
         [Benchmark]
-        [ArgumentsSource(nameof(CollectionOfNumbers))]
-        public void Foreach_Over_Collection_Of_Numbers(int[] collection)
+        public void Select_Over_Collection_Of_Numbers()
         {
-            var result = new List<string>(collection.Length);
-            foreach (var item in collection)
+            _collectionOfIntegers
+                .Select(number => $"{number}")
+                .Consume(_consumer);
+        }
+
+        [Benchmark]
+        public void Foreach_Over_Collection_Of_Numbers()
+        {
+            var result = new List<string>(_collectionOfIntegers.Length);
+            foreach (var item in _collectionOfIntegers)
             {
                 result.Add($"{item}");
             }
         }
 
         [Benchmark]
-        [ArgumentsSource(nameof(CollectionOfNumbers))]
-        public void For_Over_Collection_Of_Numbers(int[] collection)
+        public void For_Over_Collection_Of_Numbers()
         {
-            var result = new string[collection.Length];
-            for (int i = 0; i < collection.Length; i++)
+            var result = new string[_collectionOfIntegers.Length];
+            for (int i = 0; i < _collectionOfIntegers.Length; i++)
             {
-                result[i] = $"{collection[i]}";
+                result[i] = $"{_collectionOfIntegers[i]}";
             }
         }
 
         [Benchmark]
-        [ArgumentsSource(nameof(CollectionOfStrings))]
-        public void Select_Over_Collection_Of_Strings(string[] collection)
-            => collection
-            .Select(str => str.Length <= 4 && str.Length >= 10)
-            .Consume(_consumer);
+        public void Select_Over_Collection_Of_Strings()
+        {
+            _collectionOfStrings
+                .Select(str => str.Length <= 4 && str.Length >= 10)
+                .Consume(_consumer);
+        }
 
         [Benchmark]
-        [ArgumentsSource(nameof(CollectionOfStrings))]
-        public void Foreach_Over_Collection_Of_Strings(string[] collection)
+        public void Foreach_Over_Collection_Of_Strings()
         {
-            var result = new List<bool>(collection.Length);
-            foreach (var item in collection)
+            var result = new List<bool>(_collectionOfStrings.Length);
+            foreach (var item in _collectionOfStrings)
             {
                 result.Add(item.Length <= 4 && item.Length >= 10);
             }
         }
 
         [Benchmark]
-        [ArgumentsSource(nameof(CollectionOfStrings))]
-        public void For_Over_Collection_Of_Strings(string[] collection)
+        public void For_Over_Collection_Of_Strings()
         {
-            var result = new bool[collection.Length];
-            for (int i = 0; i < collection.Length; i++)
+            var result = new bool[_collectionOfStrings.Length];
+            for (int i = 0; i < _collectionOfStrings.Length; i++)
             {
-                var item = collection[i];
+                var item = _collectionOfStrings[i];
                 result[i] = item.Length <= 4 && item.Length >= 10;
             }
         }
 
         [Benchmark]
-        [ArgumentsSource(nameof(CollectionOfComplexObjects))]
-        public void Select_Over_Collection_Of_Complex_Objects(ComplexObject[] collection)
-            => collection
-            .Select(obj => $"{obj.SomeId} - {obj.SomeString} - {obj.OtherObjects.Count()}")
-            .Consume(_consumer);
+        public void Select_Over_Collection_Of_Complex_Objects()
+        {
+            _collectionOfObjects
+                .Select(obj => $"{obj.SomeId} - {obj.SomeString} - {obj.OtherObjects.Count()}")
+                .Consume(_consumer);
+        }
 
         [Benchmark]
-        [ArgumentsSource(nameof(CollectionOfComplexObjects))]
-        public void Foreach_Over_Collection_Of_Complex_Objects(ComplexObject[] collection)
+        public void Foreach_Over_Collection_Of_Complex_Objects()
         {
-            var result = new List<string>(collection.Length);
-            foreach (var item in collection)
+            var result = new List<string>(_collectionOfObjects.Length);
+            foreach (var item in _collectionOfObjects)
             {
                 result.Add($"{item.SomeId} - {item.SomeString} - {item.OtherObjects.Count()}");
             }
         }
 
         [Benchmark]
-        [ArgumentsSource(nameof(CollectionOfComplexObjects))]
-        public void For_Over_Collection_Of_Complex_Objects(ComplexObject[] collection)
+        public void For_Over_Collection_Of_Complex_Objects()
         {
-            var result = new string[collection.Length];
-            for (int i = 0; i < collection.Length; i++)
+            var result = new string[_collectionOfObjects.Length];
+            for (int i = 0; i < _collectionOfObjects.Length; i++)
             {
-                var item = collection[i];
+                var item = _collectionOfObjects[i];
                 result[i] = $"{item.SomeId} - {item.SomeString} - {item.OtherObjects.Count()}";
             }
         }
-
-        #region Data
-        public IEnumerable<object> CollectionOfNumbers()
-        {
-            yield return _fixture.CreateMany<int>(100000).ToArray();
-        }
-
-        public IEnumerable<object> CollectionOfStrings()
-        {
-            yield return _fixture.CreateMany<string>(100000).ToArray();
-        }
-
-        public IEnumerable<object> CollectionOfComplexObjects()
-        {
-            yield return _fixture.CreateMany<ComplexObject>(100000).ToArray();
-        }
-        #endregion
     }
 }

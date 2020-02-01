@@ -11,3 +11,7 @@ The [Results](src/Benchmark.Linq/Projections/README.md) for `Linq.Select` vs `Fo
 ## Strings
 
 The [Results](src/Benchmark.Strings/README.md) for experimenting using R/RW model with different ways to "stringify" the object. (WIP)
+
+## Dynamic method invocation
+
+The [Results](src/Benchmark.Dynamic/README.md) for experiment on dynamic method invocation.

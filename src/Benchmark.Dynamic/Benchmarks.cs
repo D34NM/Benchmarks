@@ -31,6 +31,25 @@ namespace Benchmark.Dynamic
         }
 
         [Benchmark]
+        public void Single_Anonymous_Object_Creation()
+        {
+            _ = new 
+            {
+                FirstPropery = Guid.NewGuid(),
+                SecondProperty = Guid.NewGuid()
+            };
+        }
+
+        [Benchmark]
+        public void Single_ExpandoObject_AsDictionary_Creation()
+        {
+            var expandoObject = new ExpandoObject() as IDictionary<string, object>;
+            expandoObject.Add("FirstProperty", Guid.NewGuid());
+            expandoObject.Add("SecondProperty", Guid.NewGuid());
+            _ = (ExpandoObject)expandoObject;
+        }
+
+        [Benchmark]
         public void Anonymous_Object_Creation()
         {
             var list = new List<object>(100_000);
